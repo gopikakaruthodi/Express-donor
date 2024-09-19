@@ -8,7 +8,7 @@ const donorSchema=new mongoose.Schema({
     dob:{type:Date},
     phone:{type:Number},
     place:{type:String},
-    BGroup:{type:String}
+    Bgroup:{type:String}
 
 })
 

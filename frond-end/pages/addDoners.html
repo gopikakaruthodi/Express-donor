@@ -16,7 +16,7 @@
         <h2>ADD DONERS</h2>
         <div class="first">
 
-            <form action="/submit" method="POST" >
+            <form action="/submit" method="POST" id="forms">
             <table>
                 <tr>
                         <td>
@@ -85,15 +85,7 @@
                                 <option value="AB-">AB-</option>
                             </select>
                         </td>
-                </tr>
-                <tr>
-                    <td>
-                            <label for="age">Age</label>
-                    </td>
-                    <td class="input" >
-                            <input type="number" name="age" id="age" min="18" max="70">
-                    </td>
-                </tr>             
+                </tr>            
                 <tr>
                     <td>
                      <input type="submit" value="Add" class="button">
@@ -106,5 +98,7 @@
         
         
     </div>
+
+    <script src="../js/add.js"></script>
 </body>
 </html>
