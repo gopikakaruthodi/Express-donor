@@ -1,50 +1,4 @@
-/* 
-
-.details{
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
-
-   
-}
-input{
-    width: 85%;
-    height: 26px;
-    margin-right: 10px;
-    background-color: rgb(244, 231, 231);
-    border: 1px solid rgb(141, 14, 14);
-    border-radius: 7px;
-    color: black;
-    padding-left: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
-    
-}
-
-input[type="text"]:focus {
-    outline: none;
-  }
-
-
-.datas{
-    margin-bottom: 5px;
-}
-
-
-
-
-.search{
-    background-color: white;
-    border: 1px solid #980000;
-    color: #531414;
-    width: 600px;
-    text-align: left;
-    margin-top: 15px;
-    margin-left: 25px;
-
- } */
-
- @import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
 
 
 *{
@@ -127,6 +81,8 @@ input{
  
 
 }
+
+
 
 input[type="text"]:focus {
     outline: none;

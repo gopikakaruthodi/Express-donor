@@ -137,7 +137,12 @@ select:hover{
 }  */
 
 
-
+.phnerr{
+    color: red;
+}
+.phnmsg{
+    color: green;
+}
 
 
    
