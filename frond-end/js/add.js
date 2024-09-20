@@ -20,13 +20,13 @@ document.getElementById("forms").addEventListener("submit",async(e)=>{
         
         if(res.status==201){
             alert("Success")
+            window.location.href="../index.html"
 
         }
         else{
             alert("Failed")
         }
     }).catch((error)=>{
-        console.log("jj");
         
         console.log(error);
         

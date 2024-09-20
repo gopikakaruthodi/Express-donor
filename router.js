@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { addDonors } from "./requestHandler.js";
+import * as rh from "./requestHandler.js";
 
 const router=Router()
-router.route("/adddonor").post(addDonors);
+router.route("/adddonor").post(rh.addDonors);
+router.route("/getdonors").get(rh.getDonors)
 
 export default router;
