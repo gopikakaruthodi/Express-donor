@@ -42,6 +42,8 @@ body{
     display: grid;
     justify-content: center;
     width: 100%;
+    text-align: center;
+
 }
 
 .search{
@@ -50,6 +52,7 @@ body{
     background-color: white;
     border: 1px solid #980000;
 }
+
 input[type="search"]::placeholder {
     color: #531414;
     font-style: italic;
@@ -66,23 +69,20 @@ input[type="search"]::placeholder {
   }
 
 
-input{
+#name,#age,#dob,#place,#phone{
 
    width: 85%;
    height: 26px;
    margin-right: 10px;
-   background-color: rgb(255, 255, 255);
-   /* border: 1px solid rgb(141, 14, 14); */
    border: none;
    border-radius: 8px;
    color: black;
    padding-left: 10px;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: center;
  
 
 }
-
-
 
 input[type="text"]:focus {
     outline: none;
@@ -163,7 +163,8 @@ input[type="text"]:focus {
 .styled-table thead tr {
     background-color: #980000;
     color: #ffffff;
-    text-align: left;
+    text-align: center;
+
 }
 th{
     background:linear-gradient(#777, #444);
@@ -194,4 +195,77 @@ th{
 
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #bc1111;
+}
+
+
+
+@media (min-width:400px) and (max-width:575.98px){
+    .styled-table {
+        width: 100%;
+        table-layout: auto;
+        margin: 25px 5px;
+        font-size: 0.6em;
+        min-width:0px;
+    }
+    .delete-btn{
+        padding: 7px 4px;
+        font-size: 8px;
+       
+        
+     }
+     .edit-btn{
+        padding: 7px 4px;
+        font-size: 8px;
+
+       
+     }
+
+}
+
+@media (min-width:576px) and (max-width:767.98px){
+    .styled-table {
+        width: 100%;
+        table-layout: auto;
+        margin: 25px 5px;
+        font-size: 0.7em;
+        min-width:0px;
+    }
+    .delete-btn{
+        padding: 8px 5px;
+        font-size: 9px;
+       
+        
+     }
+     .edit-btn{
+        padding: 8px 5px;
+        font-size: 9px;
+
+       
+     }
+
+        
+}
+
+@media (min-width:768px) and (max-width:991.98px){
+    .styled-table {
+        width: 100%;
+        table-layout: auto;
+        margin: 25px 5px;
+        font-size: 0.8em;
+        min-width:0px;
+    }
+    .delete-btn{
+        padding: 10px 6px;
+        font-size: 12px;
+       
+        
+     }
+     .edit-btn{
+        padding: 10px 6px;
+        font-size: 12px;
+
+       
+     }
+
+    
 }

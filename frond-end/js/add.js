@@ -1,6 +1,54 @@
+
+
+
+document.getElementById("forms").addEventListener("submit",async(e)=>{
+    e.preventDefault();
+    // console.log("hii");
+    const name=document.getElementById("name").value
+    const age=document.getElementById("age").value
+    const dob=document.getElementById("dob").value
+    const phone=document.getElementById("phone").value
+    const place=document.getElementById("place").value
+    const Bgroup=document.getElementById("Bgroup").value
+    console.log(name,age,dob,phone,place,Bgroup);
+    
+
+    await fetch("http://localhost:3002/api/adddonor",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({name,age,dob,phone,place,Bgroup}),
+    }).then((res)=>{
+        console.log(res);
+        
+        if(res.status==201){
+            alert("Success")
+            window.location.href="../index.html"
+
+        }
+        else if(res.status==400){
+            alert("Phone Number Already Exist")
+        }
+        else{
+            alert("Unable to Save Data")
+        }
+    }).catch((error)=>{
+        
+        console.log(error);
+        
+    })
+    
+    
+    
+
+})
+
+
+
+// validation
+
 function validatePhone(phone){
     // console.log(phone);
-    let regEx=/^[6-9]\d{9}/
+    let regEx=/^[6-9]\d{2}-\d{3}-\d{4}/
     console.log(regEx.test(phone));
     
     if ((regEx.test(phone))){
@@ -131,43 +179,3 @@ function validateDOB(dob){
 
 
 
-
-
-
-document.getElementById("forms").addEventListener("submit",async(e)=>{
-    e.preventDefault();
-    // console.log("hii");
-    let name=document.getElementById("name").value
-    let age=document.getElementById("age").value
-    let dob=document.getElementById("dob").value
-    let phone=document.getElementById("phone").value
-    let place=document.getElementById("place").value
-    let Bgroup=document.getElementById("Bgroup").value
-    console.log(name,age,dob,phone,place,Bgroup);
-    
-
-    await fetch("http://localhost:3002/api/adddonor",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({name,age,dob,phone,place,Bgroup}),
-    }).then((res)=>{
-        console.log(res);
-        
-        if(res.status==201){
-            alert("Success")
-            window.location.href="../index.html"
-
-        }
-        else{
-            alert("Failed")
-        }
-    }).catch((error)=>{
-        
-        console.log(error);
-        
-    })
-    
-    
-    
-
-})

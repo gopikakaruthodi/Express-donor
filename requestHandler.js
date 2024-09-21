@@ -9,9 +9,7 @@ export async function addDonors(req,res){
   
     try {
         // console.log(req.body);
-        const{name,age,dob,phone,place,Bgroup}=req.body
-        console.log("---------------");
-        
+        const{name,age,dob,phone,place,Bgroup}=req.body        
         console.log(name,age,dob,phone,place,Bgroup);
 
         // Validation
@@ -33,7 +31,7 @@ export async function addDonors(req,res){
 
         }
         else{
-            res.status(404).send({msg:"Phone Number Already Exist"})    
+            res.status(400).send({msg:"Phone Number Already Exist"})    
 
         }  
         
@@ -71,7 +69,62 @@ export async function getDonor(req,res){
         res.status(200).send(data);
         
     } catch (error) {
-        console.log(error);
+        res.status(404).send(error);
         
     }
+}
+
+// Update data
+
+export async function updateDonor(req,res) {
+    try {
+        // console.log(req.params);
+        // console.log(req.body);
+        const _id=req.params;
+        const {name,age,dob,phone,place,Bgroup}=req.body
+        if(!(name&&age&&dob&&phone&&place&&Bgroup)){
+            return res.status(404).send({msg:"Fields Are Empty"})
+        }
+        
+        donorSchema.updateOne({_id},{$set:{name,age,dob,phone,place,Bgroup}}).then(()=>{  
+            console.log(req.body);
+                      
+            res.status(201).send({msg:"Successfully Updated"})
+
+        }).catch((error)=>{
+            res.status(404).send(error)
+        })
+        
+        
+        
+        
+    } catch (error) {
+        console.log(error);
+        
+
+        
+    }
+    
+}
+
+// delete data
+
+export async function deleteDonor(req,res) {
+    try {
+        const _id=req.params
+        console.log(_id);
+        donorSchema.deleteOne({_id}).then(()=>{
+            res.status(200).send({msg:"Deleted"})
+        }).catch((error)=>{
+            console.log(error);
+            
+        })
+        
+        
+    } catch (error) {
+        console.log(error);
+        
+        
+    }
+    
 }

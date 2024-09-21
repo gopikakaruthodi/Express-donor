@@ -54,3 +54,38 @@ async function getDonor(){
             </table>`
 }
 getDonor()
+
+// Update 
+
+document.getElementById("forms").addEventListener("submit",async(e)=>{
+    e.preventDefault();
+    const name=document.getElementById("name").value
+    const age=document.getElementById("age").value
+    const dob=document.getElementById("dob").value
+    const phone=document.getElementById("phone").value
+    const place=document.getElementById("place").value
+    const Bgroup=document.getElementById("Bgroup").value
+    console.log(name,age,dob,phone,place,Bgroup);
+
+    const res=await fetch(`http://localhost:3002/api/updatedonor/${id}`,{
+        method:"PUT",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({name,age,dob,phone,place,Bgroup})
+
+    })
+    
+    if(res.status==201){
+        const data=await res.json()
+        console.log(data);
+        alert(data.msg)
+        getDonor()
+        window.location.href="../index.html"
+    }
+    else{
+        const data=await res.json()
+        alert(data.msg)
+    }
+    
+    
+})
+
