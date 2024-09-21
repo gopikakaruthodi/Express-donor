@@ -40,7 +40,7 @@
                         <label for="dob">Date Of Birth</label>
                     </td>
                     <td class="input">
-                        <input type="text" name="dob" id="dob" placeholder="00-00-0000" onkeyup="validateDOB(document.getElementById('dob').value)">
+                        <input type="date" name="dob" id="dob" placeholder="00-00-0000"  oninput="validateDOB(document.getElementById('dob').value)">
                         <div id="dobV"></div>
 
                     </td>

@@ -9,11 +9,18 @@ function validatePhone(phone){
     else{
         document.getElementById("phn").textContent="Phone Number Is Invalid"
         document.getElementById("phn").style.color="red"
-        document.getElementById("phn").style.fontSize=13+"px"
+        document.getElementById("phn").style.fontSize=12+"px"
+        document.getElementById("phn").style.fontWeight="bold"
+
 
 
 
     }
+    document.getElementById("phone").addEventListener("keyup", function() {
+        if (document.getElementById("phone").value== "") {
+            document.getElementById("phn").textContent = "";
+        }
+    });
 
 
 
@@ -24,26 +31,48 @@ function validateAge(age){
     if (!(regEx.test(age))){
         document.getElementById("ageV").textContent="Not Eligible"
         document.getElementById("ageV").style.color="red"
-        document.getElementById("ageV").style.fontSize=13+"px"
+        document.getElementById("ageV").style.fontSize=12+"px"
+        document.getElementById("ageV").style.fontWeight="bold"
+
 
     }
     else{
         document.getElementById("ageV").textContent=""
 
     }
+
+    document.getElementById("age").addEventListener("keyup", function() {
+        if (document.getElementById("age").value== "") {
+            document.getElementById("ageV").textContent = "";
+        }
+    });
+
 }
+
+
+
 function validateName(name){
     let regEx=/^[A-Z,a-z]{3,}/
     if (!(regEx.test(name))){
         document.getElementById("nameV").textContent="Invalid"
         document.getElementById("nameV").style.color="red"
         document.getElementById("nameV").style.fontSize=13+"px"
+        document.getElementById("nameV").style.fontWeight="bold"
+        document.getElementById("nameV").style.display="block"
     }
     else{
         document.getElementById("nameV").textContent=""
+        document.getElementById("nameV").style.display="none"
+
 
 
     }
+    document.getElementById("name").addEventListener("keyup", function() {
+        if (document.getElementById("name").value== "") {
+            document.getElementById("nameV").textContent = "";
+        }
+    });
+
 
 }
 function validatePlace(place){
@@ -52,19 +81,31 @@ function validatePlace(place){
         document.getElementById("placeV").textContent="Invalid"
         document.getElementById("placeV").style.color="red"
         document.getElementById("placeV").style.fontSize=13+"px"
+        document.getElementById("placeV").style.fontWeight="bold"
+
 
     }
     else{
        document.getElementById("placeV").textContent=""
 
     }
+
+    document.getElementById("place").addEventListener("keyup", function() {
+        if (document.getElementById("place").value== "") {
+            document.getElementById("placeV").textContent = "";
+        }
+    });
+    
 }
 function validateDOB(dob){
-    let regEx=/^([0][1-9]|[1-2]\d|[3][1-2])-([0][1-9]|[1][0-2])-([1][9]\d{2}|[2][0][1-2][1-4])/
-    if (!(regEx.test(dob))){
-        document.getElementById("dobV").textContent="Eligible"
+    // console.log(dob);
+    let regEx=/^([1][9]\d{2}|[2][0][0][0-6])-([0][1-9]|[1][0-2])-([0][1-9]|[1-2]\d|[3][1-2])$/
+    if (!(regEx.test(dob))){           
+        document.getElementById("dobV").textContent="Not Eligible"
         document.getElementById("dobV").style.color="red"
         document.getElementById("dobV").style.fontSize=13+"px"
+        document.getElementById("dobV").style.fontWeight="bold"
+
 
     }
     else{
@@ -72,6 +113,11 @@ function validateDOB(dob){
       
 
     }
+    document.getElementById("dob").addEventListener("onchange", function() {
+        if (document.getElementById("dob").value== "") {
+            document.getElementById("dobV").textContent = "";
+        }
+    });
 }
 
 
