@@ -1,6 +1,6 @@
 function validatePhone(phone){
     // console.log(phone);
-    let regEx=/^[6-9]\d{2}\d{3}\d{4}/
+    let regEx=/^[6-9]\d{9}/
     console.log(regEx.test(phone));
     
     if ((regEx.test(phone))){

@@ -60,3 +60,18 @@ export async function getDonors(req,res){
     }
 
 }
+
+// get donor
+
+export async function getDonor(req,res){
+    try {
+        console.log(req.params);
+        const _id=req.params;
+        const data=await donorSchema.findOne({_id})
+        res.status(200).send(data);
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}

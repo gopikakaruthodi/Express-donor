@@ -1,4 +1,5 @@
 async function getData(){
+    console.log("----------------");
     let res=await fetch("http://localhost:3002/api/getdonors")
     // console.log(res);
     if(res.status==200){
@@ -16,7 +17,7 @@ async function getData(){
                         <td><div id="place">${donor.place}</div></td>
                         <td><div id="Bgroup">${donor.Bgroup}</div></td>
                         </td>
-                        <td> <a href="./pages/editDoner.html"><button class="edit-btn" >EDIT</button></a>
+                        <td> <a href="./pages/editDoner.html?id=${donor._id}"><button class="edit-btn" >EDIT</button></a>
                             <button class="delete-btn"  >DELETE</button></td>
 
                     </tr>`
