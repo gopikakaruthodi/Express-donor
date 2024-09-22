@@ -41,8 +41,7 @@ async function deleteDonor(id){
     console.log(id); 
     if(confirm("Do You Want To Delete The Employee?")){
         const res=await fetch(`http://localhost:3002/api/deletedonor/${id}`,{
-            method:"DELETE",
-            body:id
+            method:"DELETE"
         })
 
         if(res.status==200){

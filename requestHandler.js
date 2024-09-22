@@ -31,7 +31,7 @@ export async function addDonors(req,res){
 
         }
         else{
-            res.status(400).send({msg:"Phone Number Already Exist"})    
+            res.status(404).send({msg:"Phone Number Already Exist"})    
 
         }  
         
