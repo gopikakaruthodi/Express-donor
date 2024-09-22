@@ -5,7 +5,7 @@ const donorSchema=new mongoose.Schema({
     name:{type:String},
     age:{type:Number},
     dob:{type:String},
-    phone:{type:Number},
+    phone:{type:String},
     place:{type:String},
     Bgroup:{type:String}
 
