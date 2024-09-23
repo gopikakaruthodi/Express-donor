@@ -87,8 +87,7 @@ export async function updateDonor(req,res) {
         }
         
         donorSchema.updateOne({_id},{$set:{name,age,dob,phone,place,Bgroup}}).then(()=>{  
-            console.log(req.body);
-                      
+            console.log(req.body);         
             res.status(201).send({msg:"Successfully Updated"})
 
         }).catch((error)=>{
