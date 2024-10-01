@@ -1,5 +1,6 @@
 import donorSchema from "./models/donor.model.js"
 import userSchema from "./models/user.model.js"
+import bcrypt from "bcrypt"
 
 export async function addDonors(req,res){
     try {
@@ -104,6 +105,25 @@ export async function deleteDonor(req,res) {
 export async function signUp(req,res) {
     console.log(req.body);
     const{username,email,password,cpassword}=req.body
+    if(!(username&&email&&password&&cpassword))
+        return res.status(404).send({msg:"Fields empty"})
+    const userEmail=await userSchema.findOne({email})
+    if(userEmail)
+        return res.status(404).send({msg:"Email already exist"})
+     if(password!=cpassword)
+        return res.status(404).send({msg:"Password mismatch"})
+    bcrypt.hash(password,10).then((hashedPassword)=>{
+        console.log(hashedPassword);
+        
+
+    }).catch((error)=>{
+        return res.status(404).send({msg:error})
+
+
+
+    })
     
+
+           
     
 }
