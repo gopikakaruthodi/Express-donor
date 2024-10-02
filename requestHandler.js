@@ -1,3 +1,4 @@
+import { error } from "console";
 import donorSchema from "./models/donor.model.js"
 import userSchema from "./models/user.model.js"
 import bcrypt from "bcrypt"
@@ -110,17 +111,18 @@ export async function signUp(req,res) {
     const userEmail=await userSchema.findOne({email})
     if(userEmail)
         return res.status(404).send({msg:"Email already exist"})
-     if(password!=cpassword)
+    if(password!=cpassword)
         return res.status(404).send({msg:"Password mismatch"})
-    bcrypt.hash(password,10).then((hashedPassword)=>{
+    bcrypt.hash(password,10).then(async(hashedPassword)=>{
         console.log(hashedPassword);
-        
+        await userSchema.create({username,email,password:hashedPassword}).then(()=>{
+            res.status(201).send({msg:"Successfully Registered"})
+        }).catch((error)=>{
+            res.status(404).send({msg:error})
+        })
 
     }).catch((error)=>{
         return res.status(404).send({msg:error})
-
-
-
     })
     
 

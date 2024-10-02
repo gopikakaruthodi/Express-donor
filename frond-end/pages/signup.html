@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign Up / Registration Form </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../css/signup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="center">
+          <h1>Register</h1>
+          <form method="POST" action="" id="forms">
+              <div class="txt_field">
+                  <input type="text" name="name" required id="username">
+                  <span></span>
+                  <label>Name</label>
+              </div>
+              <div class="txt_field">
+                  <input type="email" name="email" required id="email" onkeyup="emailValidation(document.getElementById('email').value)" placeholder="Email">
+                  <div id="em"></div>
+              </div>
+              <div class="txt_field">
+                  <input type="password" name="password" required id="password" placeholder="Password" onkeyup="passwordValidation(document.getElementById('password').value)">
+                  <div id="pswds"></div>
+              </div>
+              <div class="txt_field">
+                  <input type="password" name="cpassword" required id="cpassword" onkeyup="passwordMatch(document.getElementById('password').value,document.getElementById('cpassword').value)">
+                  <div id="cpswds"></div>
+                  <label>Confirm Password</label>
+              </div>
+              <input name="submit" type="Submit" value="Sign Up">
+              <div class="signup_link">
+                  Have an Account ? <a href="./signin.html">Login Here</a>
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <script src="../js/signup.js"></script>
+  </body>
+</html>

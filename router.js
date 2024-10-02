@@ -7,7 +7,7 @@ router.route("/getdonors").get(rh.getDonors);
 router.route("/getdonor/:_id").get(rh.getDonor)
 router.route("/updatedonor/:_id").put(rh.updateDonor)
 router.route("/deletedonor/:_id").delete(rh.deleteDonor)
-
+// user authentification
 router.route("/signup").post(rh.signUp)
 
 
