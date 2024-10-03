@@ -131,7 +131,7 @@ export async function signUp(req,res) {
            
     
 }
-signIn
+// sign in
 export async function signIn(req,res) {
     try {
         // console.log(req.body);
