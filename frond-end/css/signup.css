@@ -9,8 +9,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     /* background: linear-gradient(120deg, #007bff, #d0314c); */
-    /* background: linear-gradient(60deg, white, teal); */
-    background-color: teal;
+    background: linear-gradient(120deg, #97c1ee, #ce6f7e);
     height: 100vh;
     overflow: hidden;
   }
