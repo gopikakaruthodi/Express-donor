@@ -121,6 +121,7 @@ export async function signUp(req,res) {
     bcrypt.hash(password,10).then(async(hashedPassword)=>{
         console.log(hashedPassword);
         await userSchema.create({username,email,password:hashedPassword}).then(()=>{
+            
             res.status(201).send({msg:"Successfully Registered"})
         }).catch((error)=>{
             res.status(404).send({msg:error})
@@ -177,8 +178,6 @@ export async function signIn(req,res) {
         // console.log(token);
         res.status(200).send({msg:"Successfully logged in",token})
         
-
-
     } catch (error) {
         console.log(error);
         
