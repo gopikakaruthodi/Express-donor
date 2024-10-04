@@ -115,6 +115,9 @@ export async function signUp(req,res) {
         return res.status(404).send({msg:"Email already exist"})
     if(password!=cpassword)
         return res.status(404).send({msg:"Password mismatch"})
+
+// method 1
+// -------------------------------------------------------------------------
     bcrypt.hash(password,10).then(async(hashedPassword)=>{
         console.log(hashedPassword);
         await userSchema.create({username,email,password:hashedPassword}).then(()=>{
@@ -126,11 +129,36 @@ export async function signUp(req,res) {
     }).catch((error)=>{
         return res.status(404).send({msg:error})
     })
-    
 
-           
-    
+// 2 method
+// ----------------------------------------------------------------------------------
+    // bcrypt.genSalt(10, function(err, salt) {
+    //     bcrypt.hash(password, salt,async function(err, hash) {
+    //         // Store hash in your password DB.
+    //         console.log(hash);
+    //         await userSchema.create({username,email,password:hash}).then(()=>{
+    //                     res.status(201).send({msg:"Successfully Registered"})
+    //                 }).catch((error)=>{
+    //                     res.status(404).send({msg:error})
+    //                 })
+            
+    //     });
+    // });
+
+    // method 3
+    // -------------------------------------------------------------------------------
+    // bcrypt.hash(password, 10,async function(err, hash) {
+    //     // Store hash in your password DB.
+    //     // console.log(hash);
+    //     await userSchema.create({username,email,password:hash}).then(()=>{
+    //                             res.status(201).send({msg:"Successfully Registered"})
+    //                         }).catch((error)=>{
+    //                             res.status(404).send({msg:error})
+    //                         })
+                        
+    //             });
 }
+
 // sign in
 export async function signIn(req,res) {
     try {
