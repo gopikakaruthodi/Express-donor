@@ -1,16 +1,25 @@
 let donors
+let Token=localStorage.getItem("Token")
+console.log(Token);
+Token?document.getElementById("check").innerHTML=`<span id="username"></span>
+                <a href="./pages/addDoners.html"><button class="add-btn">ADD</button></a>
+                <button class="add-btn" onclick="signOut()">sign Out</button>`:document.getElementById("check").innerHTML=
+                `<a href="./pages/signup.html"><button class="add-btn">signup</button></a>`
 
 async function getData(){
-    console.log("----------------");
-    let res=await fetch("http://localhost:3002/api/getdonors")
-    // console.log(res);
+    // console.log("----------------");
+    let res=await fetch("http://localhost:3002/api/getdonors",{headers
+        :{"authorization":`Bearer ${Token}`}
+    })
+    console.log(res);
+    donors=await res.json();
     if(res.status==200){
-        donors=await res.json();
-        // console.log(donors.name);
-
+        console.log(donors);
         str=``
-        donors.map((donor)=>{
+        donors.donors.map((donor)=>{
             console.log(donor.name);
+        document.getElementById("username").innerText=donors.user
+
         str+=`<tr>
                         <td><div id="name">${donor.name}</div></td>
                         <td><div id="age">${donor.age}</div></td>
@@ -27,6 +36,9 @@ async function getData(){
     })
     document.getElementById("main").innerHTML=str
 
+    }
+    else{
+        alert(donors.msg)
     }
     
     
@@ -85,3 +97,8 @@ document.getElementById("search").addEventListener("keyup",(e)=>{
 
     
 })
+
+function signOut(){
+    localStorage.removeItem("Token")
+
+}

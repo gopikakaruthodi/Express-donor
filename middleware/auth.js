@@ -5,8 +5,8 @@ const {verify}=jwt
 export default async function Auth(req,res,next){
     try {
         console.log("middleware");
-        // console.log(req.headers.authorization);
-        const key=req.headers.authorization
+        console.log(req.headers.authorization);
+        const key=req.headers.authorization;
         if(!key){  
             return res.status(403).send("Unautherized access")
         }

@@ -36,11 +36,12 @@ export async function addDonors(req,res){
     }
 }
 
+// get Donors
 export async function getDonors(req,res){
     try {
         const donors=await donorSchema.find();
         console.log(donors);
-        res.status(200).send(donors)
+        res.status(200).send({donors,user:req.user})
         
     } catch (error) {
         res.status(404).send({msg:error})
